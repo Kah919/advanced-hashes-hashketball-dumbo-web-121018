@@ -143,6 +143,7 @@ def num_points_scored(player_name) #improved and shorter method
   game_hash.each do |location, attributes| # location gets the team and attributes is everything in it like players
     attributes[:players].each do |name, stats| # attributes[:players] to only get the players and itterate through it
       if name == player_name # if the key is == to the name then that is the block we want
+        binding.pry
         return stats[:points] # we access the value to get the points
       end
     end
