@@ -213,20 +213,10 @@ end
 
 def player_numbers(team_name) # return array of teams jersey #
   arr = []
-  game_hash.each do |location, attribute|
-    attribute.each do |keys, value|
-      if value == team_name #if the team name matches
-        attribute.each do |k, v|
-          if k == :players
-            v.each do |player, numbers|
-              numbers.each do |x, y|
-                if x == :number
-                  arr << y
-                end
-              end
-            end
-          end
-        end
+  game_hash.each do |location, info|
+    if info[:team_name] == team_name
+      info[:players].each do |player, number|
+        arr << number[:number]
       end
     end
   end
